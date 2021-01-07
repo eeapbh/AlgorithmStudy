@@ -12,11 +12,7 @@ for tc in range(1, t+1):
         else:
             dic[b] = [a]
     ans = 1
-    ans2 = 0
+
     for v in dic.values():
-        ans *= len(v)
-        ans2 += len(v)
-    if len(dic) == 1:
-        print(ans)
-    else:
-        print(ans + ans2)
+        ans *= (len(v)+1)
+    print(ans-1)

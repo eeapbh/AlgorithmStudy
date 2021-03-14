@@ -10,4 +10,4 @@ for i in range(n):
         ans += 1
 print(ans)
 
-https://aisiunme.github.io/algorithm/2018/08/13/baekjoon-group-word-checker-1316.md/
+# https://aisiunme.github.io/algorithm/2018/08/13/baekjoon-group-word-checker-1316.md/

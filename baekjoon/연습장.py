@@ -1,2 +1,2 @@
-arr = [[0]*10000 for _ in range(10000)]
+arr = [0 for _ in range(3)]
 print(arr)

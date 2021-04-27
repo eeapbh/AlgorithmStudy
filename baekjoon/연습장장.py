@@ -1,4 +1,19 @@
-arr = [[1, 2, 3], [4, 5, 6]]
-arr2 = list(zip(*arr))
-print(arr2)
-print(sum(arr2[1]))
+from collections import deque
+
+def solution(numbers, target):
+    n = len(numbers)
+    answer = 0
+    q = deque()
+    q.append((0, 0))
+
+
+    while len(q)> 0:
+        Cidx, value = q.popleft()
+        if Cidx == n:
+            if value == target:
+                answer += 1
+        else:
+            q.append((Cidx + 1, value + numbers[Cidx]))
+            q.append((Cidx +1, value - numbers[Cidx]))
+    return answer
+print(solution([1, 1, 1, 1, 1], 3))

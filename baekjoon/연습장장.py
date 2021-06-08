@@ -1,1 +1,1 @@
-print(chr())
+print(ord('Z'))

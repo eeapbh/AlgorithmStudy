@@ -1,10 +1,14 @@
+import heapq
 n = int(input())
 arr = [int(input()) for _ in range(n)]
-arr.sort()
-ans = arr[0] + arr[1]
-arr.pop(0)
-arr.pop(0)
-print(arr)
-while len(arr):
-    ans = 2 * ans + arr.pop(0)
+
+ans = 0
+heapq.heapify(arr)
+while len(arr) > 1:
+    a = heapq.heappop(arr)
+    b = heapq.heappop(arr)
+    ans += a + b
+    heapq.heappush(arr, a+b)
+
+
 print(ans)

@@ -1,3 +1,5 @@
-arr = [0, 1, 2, 3, 4]
+import heapq
+arr = [10, 40, 15, 40, 50, 100, 30]
+heapq.heapify(arr)
+print(arr)
 
-print(arr.rotate(1))

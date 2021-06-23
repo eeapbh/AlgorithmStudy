@@ -1,6 +1,5 @@
-5 5
-.x...
-..xxx
-xxxxx
-xxxxx
-xxxxx
+4
+3
+4
+1
+1

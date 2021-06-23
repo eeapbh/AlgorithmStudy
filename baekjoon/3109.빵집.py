@@ -8,10 +8,12 @@ arr = [list(input()) for _ in range(r)]
 visit = [[0]*c for _ in range(r)]
 
 cnt = 0
+flag = False
 def dfs(x, y):
-    global cnt
+    global cnt, flag
     if y == c-1:
         cnt += 1
+        flag = True
         return
 
     for i in range(3):
@@ -20,8 +22,11 @@ def dfs(x, y):
         if 0 <= nx < r and 0 <= ny < c and arr[nx][ny] == '.':
             if visit[nx][ny] == 0:
                 visit[nx][ny] = 1
-                return dfs(nx, ny)
+                dfs(nx, ny)
+                if flag:
+                    return
 
 for i in range(r):
+    flag = False
     dfs(i, 0)
 print(cnt)

@@ -6,11 +6,9 @@ arr = [int(input()) for _ in range(p)]
 gate = [i for i in range(g + 1)]
 
 def union(x, y):
-
     a = find(x)
     b = find(y)
     gate[a] = b
-
 
 def find(x):
     if gate[x] == x:

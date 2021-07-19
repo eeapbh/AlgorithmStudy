@@ -15,7 +15,6 @@ if box[0] > crain[0]:
 else:
     while len(box):
         cnt += 1
-
         for i in crain:
             for j in box:
                 if i >= j:

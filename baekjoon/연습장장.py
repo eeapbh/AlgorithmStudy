@@ -1,30 +1,18 @@
-n = int(input())
-arr = [list(map(int, input().split())) for _ in range(n)]
-visit = []
-dx = [-1, 1, 0, 0]
-dy = [0, 0, -1, 1]
-
-
-def dfs(x, y):
-    global cnt
-    for i in range(4):
-        nx = x + dx[i]
-        ny = y + dy[i]
-        if 0<=nx<n and 0<=ny<n and arr[nx][ny] == 1:
-            if (nx, ny) not in visit:
-                cnt += 1
-                visit.append((nx, ny))
-                dfs(nx, ny)
-
-rs = []
+n, m = map(int, input().split())
+s = []
+result = ""
+cnt = 0
 for i in range(n):
+    a = input()
+    s.append(a.upper())
+for i in range(m):
+    a = [0 for i in range(26)]
     for j in range(n):
-        if arr[i][j] == 1 and (i, j) not in visit:
-            cnt = 1
-            visit.append((i, j))
-            dfs(i, j)
-            rs.append(cnt)
-
-print(len(rs))
-rs.sort()
-print(*rs)
+        a[ord(s[j][i]) - 65] += 1
+    result += chr(a.index(max(a)) + 65)
+for i in range(n):
+    for j in range(m):
+        if s[i][j] != result[j]:
+            cnt += 1
+print(result)
+print(cnt)

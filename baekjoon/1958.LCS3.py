@@ -1,25 +1,14 @@
-a = input()
-b = input()
-c = input()
-n1 = len(a)
-n2 = len(b)
-n3 = len(c)
-
-
-dp = [[[0]*n3 for _ in range(n2)] for _ in range(n1)]
-
-def LCS(x, y, z):
-
-    if x < 0 or b < 0 or c < 0:
-        return 0
-    if dp[x][y][z] == -1:
-        dp[x][y][z] = 0
-
-        if a[x] == b[y] == c[z]:
-            dp[x][y][z] = LCS(x-1, y-1, z-1) + 1
-        else:
-            dp[x][y][z] = max(max(LCS(x, y-1, z), LCS(x-1, y, z)), LCS(x, y, z-1))
-
-    return dp[x][y][z]
-
-print(LCS(n1-1, n2-1, n3-1))
+s1, s2, s3 = input(), input(), input()
+dp = [[[0]*(len(s3)+1) for _ in range(len(s2)+1)] for _ in range(len(s1)+1)]
+for i in range(1, len(s1)+1):
+    for j in range(1, len(s2)+1):
+        for k in range(1, len(s3)+1):
+            if s1[i-1] == s2[j-1] == s3[k-1]:
+                dp[i][j][k] = dp[i-1][j-1][k-1]+1
+            else:
+                dp[i][j][k] = max(dp[i-1][j][k], dp[i][j-1][k], dp[i][j][k-1])
+m = 0
+for matrix in dp:
+    for row in matrix:
+        m = max(m, max(row))
+print(m)

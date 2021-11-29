@@ -1,10 +1,2 @@
-3
-5
-WBBWW
-WBWBW
-7
-BBBBBBB
-BWBWBWB
-4
-WWBB
-BBWB
+houctuh
+end
